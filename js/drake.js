@@ -1,6 +1,9 @@
 (function(){
   var noggun,
       totalHeight,
+      scrollTimeout,
+      scrollCount = 0,
+      song = new Audio("./sounds/drake-sftb.mp3"),
       progress = function(){
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop,
             percentage = (scrollTop / (totalHeight - window.innerHeight));
@@ -12,6 +15,11 @@
             high = window.innerHeight + noggun.offsetHeight;
 
         return high + (low - (high * p));
+      },
+      killSong = function(){
+        scrollCount = 0;
+        song.pause();
+        song.currentTime = 0;
       };
 
   window.addEventListener("load", function(){
@@ -26,6 +34,25 @@
   });
 
   window.addEventListener("scroll", function(){
+    if (!noggun) {
+      return;
+    }
+
+    scrollCount += 1;
     noggun.style.top = normalize(progress()) + "px";
+
+    if (song.paused) {
+      song.play();
+    }
+    
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
+    }
+
+    if (scrollCount > 2) {
+      scrollTimeout = setTimeout(killSong, 150);
+    } else {
+      scrollTimeout = setTimeout(killSong, 500);
+    }
   });
 })();
