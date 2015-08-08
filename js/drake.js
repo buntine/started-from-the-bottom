@@ -26,8 +26,11 @@
         var currentProgress = progress();
 
         if (currentProgress < previousProgress) {
+          if (currentProgress == 0) {
+            window.scrollTo(0, totalHeight);
+          }
+
           scrollCount += 1;
-          noggun.style.top = normalize(currentProgress) + "px";
 
           if (scrollTimeout) {
             clearTimeout(scrollTimeout);
@@ -38,10 +41,11 @@
               song.play();
             }
    
-            scrollTimeout = setTimeout(killSong, 150);
+            scrollTimeout = setTimeout(killSong, 325);
           }
         }
 
+        noggun.style.top = normalize(currentProgress) + "px";
         previousProgress = currentProgress;
       };
 
