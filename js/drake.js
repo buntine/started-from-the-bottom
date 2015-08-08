@@ -1,12 +1,15 @@
 (function(){
-  var noggun, totalHeight;
-
-  var position = function(){
-    var scrollTop = window.pageYOffset || document.documentElement.scrollTop,
-        progress = (scrollTop / (totalHeight - window.innerHeight));
+  var noggun,
+      totalHeight,
+      progress = function(){
+        var scrollTop = window.pageYOffset || document.documentElement.scrollTop,
+            percentage = (scrollTop / (totalHeight - window.innerHeight));
     
-    return progress;
-  };
+        return percentage;
+      },
+      normalize = function(p){
+        return window.innerHeight - (window.innerHeight * p);
+      };
 
   window.addEventListener("load", function(){
     var body = document.body,
@@ -20,7 +23,6 @@
   });
 
   window.addEventListener("scroll", function(){
-
-    console.log(position());
+    noggun.style.top = normalize(progress()) + "px";
   });
 })();
