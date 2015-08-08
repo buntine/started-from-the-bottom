@@ -1,6 +1,7 @@
 #drake {
   position: fixed;
   left: calc(50% - 500px/2);
+  top: 0;
   width: 500px;
   height: 450px;
   background-color: red;
