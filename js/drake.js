@@ -2,6 +2,7 @@
   var noggun,
       totalHeight,
       scrollTimeout,
+      previousProgress = 0,
       scrollCount = 0,
       song = new Audio("./sounds/drake-sftb-cut.mp3"),
       progress = function(){
@@ -20,6 +21,28 @@
         scrollCount = 0;
         song.pause();
         song.currentTime = 0;
+      },
+      play = function(){
+        var currentProgress = progress();
+
+        if (currentProgress < previousProgress) {
+          scrollCount += 1;
+          noggun.style.top = normalize(currentProgress) + "px";
+
+          if (scrollTimeout) {
+            clearTimeout(scrollTimeout);
+          }
+
+          if (scrollCount > 2) {
+            if (song.paused) {
+              song.play();
+            }
+   
+            scrollTimeout = setTimeout(killSong, 150);
+          }
+        }
+
+        previousProgress = currentProgress;
       };
 
   window.addEventListener("load", function(){
@@ -31,28 +54,8 @@
                            html.clientHeight, html.scrollHeight, html.offsetHeight);
 
     noggun.style.top = window.innerHeight + "px";
-  });
 
-  window.addEventListener("scroll", function(){
-    if (!noggun) {
-      return;
-    }
-
-    scrollCount += 1;
-    noggun.style.top = normalize(progress()) + "px";
-
-    if (song.paused) {
-      song.play();
-    }
-    
-    if (scrollTimeout) {
-      clearTimeout(scrollTimeout);
-    }
-
-    if (scrollCount > 2) {
-      scrollTimeout = setTimeout(killSong, 150);
-    } else {
-      scrollTimeout = setTimeout(killSong, 600);
-    }
+    window.scrollTo(0, totalHeight);
+    window.addEventListener("scroll", play);
   });
 })();
