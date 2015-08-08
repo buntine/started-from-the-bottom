@@ -3,7 +3,7 @@
       totalHeight,
       scrollTimeout,
       scrollCount = 0,
-      song = new Audio("./sounds/drake-sftb.mp3"),
+      song = new Audio("./sounds/drake-sftb-cut.mp3"),
       progress = function(){
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop,
             percentage = (scrollTop / (totalHeight - window.innerHeight));
@@ -52,7 +52,7 @@
     if (scrollCount > 2) {
       scrollTimeout = setTimeout(killSong, 150);
     } else {
-      scrollTimeout = setTimeout(killSong, 500);
+      scrollTimeout = setTimeout(killSong, 600);
     }
   });
 })();
