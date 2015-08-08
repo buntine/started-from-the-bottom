@@ -8,7 +8,11 @@
         return percentage;
       },
       normalize = function(p){
-        return window.innerHeight - (window.innerHeight * p);
+        var low = -450,
+            high = window.innerHeight + 450;
+
+        //return window.innerHeight - (window.innerHeight * p);
+        return high + (low - (high * p));
       };
 
   window.addEventListener("load", function(){
@@ -17,7 +21,7 @@
 
     noggun = document.getElementById("drake");
     totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
-                    html.clientHeight, html.scrollHeight, html.offsetHeight);
+                           html.clientHeight, html.scrollHeight, html.offsetHeight);
 
     noggun.style.top = window.innerHeight + "px";
   });
