@@ -4,11 +4,11 @@ body {
 
 #drake {
   position: fixed;
-  left: calc(50% - 500px/2);
+  left: calc(50% - 320px/2);
   top: 0;
-  width: 500px;
-  height: 450px;
-  background-color: red;
+  width: 320px;
+  height: 600px;
+  background: url('/images/drake.png') no-repeat right top;
 }
 
 footer {
