@@ -8,10 +8,9 @@
         return percentage;
       },
       normalize = function(p){
-        var low = -450,
-            high = window.innerHeight + 450;
+        var low = -noggun.offsetHeight,
+            high = window.innerHeight + noggun.offsetHeight;
 
-        //return window.innerHeight - (window.innerHeight * p);
         return high + (low - (high * p));
       };
 
