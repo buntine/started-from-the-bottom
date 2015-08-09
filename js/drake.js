@@ -5,7 +5,8 @@
       scrollInterval,
       previousProgress = 0,
       scrollCount = 0,
-      song = new Audio("/sounds/drake-sftb-cut.mp3"),
+      songUp = new Audio("/sounds/drake-sftb-cut.mp3"),
+      songDown = new Audio("/sounds/drake-sftb-cut-rev.mp3"),
       progress = function(){
         var scrollTop = window.pageYOffset || document.documentElement.scrollTop,
             percentage = (scrollTop / (totalHeight - window.innerHeight));
@@ -18,26 +19,33 @@
 
         return high + (low - (high * p));
       },
-      killSong = function(){
+      killUpSong = function(){
         scrollCount = 0;
         scrollInterval = setInterval(function(){
           if (progress() < 1) {
             window.scrollBy(0, 20);
           }
           else {
-            clearInterval(scrollInterval);
+            killDownSong();
           }
-        }, 25);
+        }, 15);
 
-        song.pause();
-        song.currentTime = 0;
+        songUp.pause();
+        songUp.currentTime = 0;
+
+        songDown.play();
+      },
+      killDownSong = function(){
+        clearInterval(scrollInterval);
+        songDown.pause();
+        songDown.currentTime = 0;
       },
       play = function(){
         var currentProgress = progress();
 
         if (currentProgress < previousProgress) {
           if (scrollInterval) {
-            clearInterval(scrollInterval);
+            killDownSong();
           }
 
           if (currentProgress == 0) {
@@ -51,11 +59,13 @@
           }
 
           if (scrollCount > 2) {
-            if (song.paused) {
-              song.play();
+            if (songUp.paused) {
+              songUp.play();
+              songDown.pause();
+              songDown.currentTime = 0;
             }
    
-            scrollTimeout = setTimeout(killSong, 325);
+            scrollTimeout = setTimeout(killUpSong, 150);
           }
         }
 
