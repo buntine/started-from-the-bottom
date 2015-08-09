@@ -2,6 +2,7 @@
   var noggun,
       totalHeight,
       scrollTimeout,
+      scrollInterval,
       previousProgress = 0,
       scrollCount = 0,
       song = new Audio("/sounds/drake-sftb-cut.mp3"),
@@ -19,6 +20,15 @@
       },
       killSong = function(){
         scrollCount = 0;
+        scrollInterval = setInterval(function(){
+          if (progress() < 1) {
+            window.scrollBy(0, 20);
+          }
+          else {
+            clearInterval(scrollInterval);
+          }
+        }, 25);
+
         song.pause();
         song.currentTime = 0;
       },
@@ -26,6 +36,10 @@
         var currentProgress = progress();
 
         if (currentProgress < previousProgress) {
+          if (scrollInterval) {
+            clearInterval(scrollInterval);
+          }
+
           if (currentProgress == 0) {
             window.scrollTo(0, totalHeight);
           }
