@@ -1,5 +1,5 @@
 body {
-  background: #000;
+  background: #000 url('/images/logo.jpg') repeat right top;
 }
 
 #drake {
@@ -21,5 +21,5 @@ footer {
 #background {
   width: 100%;
   height: 40000px;
-  background: #000;
+  background: none;
 }
