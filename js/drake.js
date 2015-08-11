@@ -23,7 +23,7 @@
         scrollCount = 0;
         scrollInterval = setInterval(function(){
           if (progress() < 1) {
-            window.scrollBy(0, 20);
+            window.scrollBy(0, 80);
           }
           else {
             killDownSong();
