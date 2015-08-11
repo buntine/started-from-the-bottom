@@ -6,8 +6,8 @@ body {
   position: fixed;
   left: calc(50% - 320px/2);
   top: 0;
-  width: 320px;
-  height: 600px;
+  width: 460px;
+  height: 850px;
   background: url('/images/drake.png') no-repeat right top;
 }
 
