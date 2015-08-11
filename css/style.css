@@ -11,7 +11,7 @@ body {
   background: url('/images/drake.png') no-repeat right top;
 }
 
-footer {
+#credits {
   background: #fff;
   position: fixed;
   bottom: 0;
@@ -19,7 +19,14 @@ footer {
 }
 
 #background {
+  position: relative;
   width: 100%;
   height: 40000px;
   background: none;
+}
+
+#about {
+  position: absolute;
+  bottom: 10px;
+  font-size: 50px;
 }
