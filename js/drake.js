@@ -23,12 +23,12 @@
         scrollCount = 0;
         scrollInterval = setInterval(function(){
           if (progress() < 1) {
-            window.scrollBy(0, 80);
+            window.scrollBy(0, 100);
           }
           else {
             killDownSong();
           }
-        }, 15);
+        }, 30);
 
         songUp.pause();
         songUp.currentTime = 0;
@@ -52,13 +52,17 @@
             window.scrollTo(0, totalHeight);
           }
 
-          scrollCount += 1;
-
           if (scrollTimeout) {
             clearTimeout(scrollTimeout);
           }
 
+          scrollCount += 1;
+
           if (scrollCount > 2) {
+            if (scrollCount % 20 == 0) {
+              console.log("Change background...");
+            }
+ 
             if (songUp.paused) {
               songUp.play();
               songDown.pause();
