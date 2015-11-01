@@ -1,9 +1,9 @@
 #drake {
   position: fixed;
-  left: calc(50% - 1120px/2);
+  left: calc(50% - 2016px/2);
   top: 0;
-  width: 1120px;
-  height: 410px;
+  width: 2016px;
+  height: 736px;
   background: url('/images/drake.png') no-repeat right top;
 }
 
