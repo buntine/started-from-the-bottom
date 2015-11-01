@@ -69,7 +69,7 @@
               songDown.currentTime = 0;
             }
    
-            scrollTimeout = setTimeout(killUpSong, 150);
+            scrollTimeout = setTimeout(killUpSong, 270);
           }
         }
 
