@@ -1,3 +1,8 @@
+html, body {
+  color: #000;
+  font-family: arial;
+}
+
 #drake {
   position: fixed;
   left: calc(50% - 2016px/2);
@@ -8,10 +13,18 @@
 }
 
 #credits {
-  background: #fff;
+  background: #ddd;
+  border-radius: 3px;
   position: fixed;
-  bottom: 0;
-  right: 0;
+  bottom: 3px;
+  right: 3px;
+  padding: 2px;
+  font-family: arial;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 #container {
