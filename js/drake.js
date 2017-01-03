@@ -83,6 +83,11 @@
         loading = document.getElementById("loading");
         cont = document.getElementById("container");
 
+    var start = document.getElementById("start");
+
+    start.addEventListener("click", function(e){
+      var song = new Audio("/sounds/drake-sftb-cut.mp3");
+      song.play();
     container.style.height = "40000px";
 
     noggun = document.getElementById("drake");
@@ -95,5 +100,8 @@
 
     window.scrollTo(0, totalHeight);
     window.addEventListener("scroll", play);
+return false;
+    });
+
   });
 })();
