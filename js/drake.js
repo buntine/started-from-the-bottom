@@ -11,7 +11,7 @@
       songDown = new Audio("/sounds/drake-sftb-cut-rev.mp3"),
       progress = () => {
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop,
-            percentage = (scrollTop / (totalHeight - window.innerHeight));
+              percentage = (scrollTop / (totalHeight - window.innerHeight));
     
         return percentage;
       },
@@ -20,6 +20,10 @@
             high = window.innerHeight + noggun.offsetHeight;
 
         return high + (low - (high * p));
+      },
+      stop = (s) => {
+        s.pause();
+        s.currentTime = 0;
       },
       killUpSong = () => {
         scrollCount = 0;
@@ -32,15 +36,12 @@
           }
         }, 30);
 
-        songUp.pause();
-        songUp.currentTime = 0;
-
         songDown.play();
+        stop(songUp);
       },
       killDownSong = () => {
         clearInterval(scrollInterval);
-        songDown.pause();
-        songDown.currentTime = 0;
+        stop(songDown);
       },
       play = () => {
         const currentProgress = progress();
@@ -67,8 +68,7 @@
  
             if (songUp.paused) {
               songUp.play();
-              songDown.pause();
-              songDown.currentTime = 0;
+              stop(songDown);
             }
    
             scrollTimeout = setTimeout(killUpSong, 270);
