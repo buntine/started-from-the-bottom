@@ -29,6 +29,11 @@
         const patron = document.getElementById("patron");
         patron.style.opacity = o;
       },
+      dancePatron = () => {
+        const patron = document.getElementById("patron");
+        patron.classList.toggle("hey");
+        patron.classList.toggle("ho");
+      },
       killUpSong = () => {
         scrollCount = 0;
         scrollInterval = setInterval(() => {
@@ -74,7 +79,7 @@
             }
 
             if (scrollCount % 40 == 0) {
-              console.log("Change background...");
+              dancePatron();
             }
   
             scrollTimeout = setTimeout(killUpSong, 270);

@@ -71,7 +71,6 @@ a {
 
 #patron {
   z-index: 600;
-  background: url("/images/patron.png") no-repeat right top;
   width: 100px;
   height: 160px;
   position: fixed;
@@ -81,6 +80,14 @@ a {
   transition: opacity .25s ease-in-out;
   -moz-transition: opacity .25s ease-in-out;
   -webkit-transition: opacity .25s ease-in-out;
+}
+
+#patron.hey {
+  background: url("/images/patron.png") no-repeat right top;
+}
+
+#patron.ho {
+  background: url("/images/cash.png") no-repeat right top;
 }
 
 @media only screen and (max-width: 1000px) {
@@ -93,8 +100,15 @@ a {
   }
 
   #patron {
-    background: url("/images/patron_mob.png") no-repeat right top;
     width: 50px;
     height: 80px;
+  }
+
+  #patron.hey {
+    background: url("/images/patron_mob.png") no-repeat right top;
+  }
+
+  #patron.ho {
+    background: url("/images/patron_mob.png") no-repeat right top;
   }
 }
