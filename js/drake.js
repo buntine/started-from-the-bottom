@@ -86,22 +86,22 @@
     var start = document.getElementById("start");
 
     start.addEventListener("click", function(e){
-      var song = new Audio("/sounds/drake-sftb-cut.mp3");
-      song.play();
-    container.style.height = "40000px";
+      e.preventDefault();
+      songUp.load();
+      songDown.load();
 
-    noggun = document.getElementById("drake");
-    totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
-                           html.clientHeight, html.scrollHeight, html.offsetHeight);
+      container.style.height = "40000px";
 
-    noggun.style.top = window.innerHeight + "px";
+      noggun = document.getElementById("drake");
+      totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
+                             html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-    loading.remove();
+      noggun.style.top = window.innerHeight + "px";
 
-    window.scrollTo(0, totalHeight);
-    window.addEventListener("scroll", play);
-return false;
+      loading.remove();
+
+      window.scrollTo(0, totalHeight);
+      window.addEventListener("scroll", play);
     });
-
   });
 })();
