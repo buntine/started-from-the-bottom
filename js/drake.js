@@ -46,6 +46,7 @@
           }
         }, 30);
 
+        setPatron(0);
         songDown.play();
         stop(songUp);
       },
