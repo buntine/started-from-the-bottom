@@ -79,13 +79,19 @@
 
   window.addEventListener("load", function(){
     var body = document.body,
-        html = document.documentElement;
+        html = document.documentElement,
+        loading = document.getElementById("loading");
+        cont = document.getElementById("container");
+
+    container.style.height = "40000px";
 
     noggun = document.getElementById("drake");
     totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
                            html.clientHeight, html.scrollHeight, html.offsetHeight);
 
     noggun.style.top = window.innerHeight + "px";
+
+    loading.remove();
 
     window.scrollTo(0, totalHeight);
     window.addEventListener("scroll", play);
