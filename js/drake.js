@@ -26,13 +26,17 @@
         s.currentTime = 0;
       },
       setPatron = (o) => {
-        const patron = document.getElementById("patron");
-        patron.style.opacity = o;
+        for (id of ["patron", "cash"]) {
+          const e = document.getElementById(id);
+          e.style.opacity = o;
+        }
       },
       dancePatron = () => {
-        const patron = document.getElementById("patron");
-        patron.classList.toggle("hey");
-        patron.classList.toggle("ho");
+        for (id of ["patron", "cash"]) {
+          const e = document.getElementById(id);
+          e.classList.toggle("hey");
+          e.classList.toggle("ho");
+        }
       },
       killUpSong = () => {
         scrollCount = 0;

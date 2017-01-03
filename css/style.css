@@ -20,7 +20,9 @@ html, body {
   border-radius: 3px;
   position: fixed;
   bottom: 3px;
-  right: 3px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
   padding: 2px;
   font-family: arial;
 }
@@ -82,13 +84,26 @@ a {
   -webkit-transition: opacity .25s ease-in-out;
 }
 
-#patron.hey {
+#cash {
+  z-index: 600;
+  width: 160px;
+  height: 180px;
+  position: fixed;
+  bottom: 5px;
+  right: 17px;
+  opacity: 0;
+  transition: opacity .25s ease-in-out;
+  -moz-transition: opacity .25s ease-in-out;
+  -webkit-transition: opacity .25s ease-in-out;
+}
+
+.hey {
   -ms-transform: rotate(25deg);
   -webkit-transform: rotate(25deg);
   transform: rotate(25deg);
 }
 
-#patron.ho {
+.ho {
   -ms-transform: rotate(-25deg);
   -webkit-transform: rotate(-25deg);
   transform: rotate(-25deg);
@@ -109,4 +124,12 @@ a {
     bottom: 10px;
     left: 17px;
   }
+
+  #cash {
+    width: 80px;
+    height: 90px;
+    bottom: 8px;
+    right: 12px;
+  }
+
 }
