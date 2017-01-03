@@ -78,7 +78,7 @@
               setPatron(1);
             }
 
-            if (scrollCount % 40 == 0) {
+            if (scrollCount % 20 == 0) {
               dancePatron();
             }
   
