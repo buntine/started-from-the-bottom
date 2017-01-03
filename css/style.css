@@ -1,6 +1,8 @@
 html, body {
   color: #000;
   font-family: arial;
+  width: 100%;
+  height: 100%;
 }
 
 #drake {
@@ -10,6 +12,7 @@ html, body {
   width: 2016px;
   height: 736px;
   background: url('/images/drake.png') no-repeat right top;
+  display: none;
 }
 
 #credits {
@@ -40,7 +43,7 @@ a {
 }
 
 #loading {
-  z-index: 1000;
+  z-index: 800;
   position: absolute;
   width: 100px;
   height: 100px;
@@ -49,4 +52,18 @@ a {
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   background: red;
+}
+
+#warmup {
+  z-index: 700;
+  position: absolute;
+  width: auto;
+  height: auto;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  padding: 20px 50px;
+  border-radius: 5px;
+  background: #ffcc00;
 }

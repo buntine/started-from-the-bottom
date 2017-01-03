@@ -80,9 +80,8 @@
       },
       start = () => {
         const body = document.body,
-            html = document.documentElement,
-            loading = document.getElementById("loading");
-            cont = document.getElementById("container");
+              html = document.documentElement,
+              cont = document.getElementById("container");
 
         songUp.load();
         songDown.load();
@@ -94,8 +93,7 @@
                              html.clientHeight, html.scrollHeight, html.offsetHeight);
 
         noggun.style.top = window.innerHeight + "px";
-
-        loading.remove();
+        noggun.style.display = "block"
 
         window.scrollTo(0, totalHeight);
         window.addEventListener("scroll", play);
@@ -110,6 +108,10 @@
       };
 
   window.addEventListener("load", () => {
+    const loading = document.getElementById("loading");
+
+    loading.remove();
+
     if (isMobile()) {
       const warmup = document.getElementById("warmup");
 
