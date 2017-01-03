@@ -115,8 +115,12 @@
     if (isMobile()) {
       const warmup = document.getElementById("warmup");
 
+      warmup.style.display = "block"
+
       warmup.addEventListener("click", (e) => {
         e.preventDefault();
+
+        warmup.remove();
         start();
       });
     } else {

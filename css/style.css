@@ -15,6 +15,16 @@ html, body {
   display: none;
 }
 
+@media only screen and (max-width: 1000px) {
+  #drake {
+    background: url('/images/drake_mob.png') no-repeat right top;
+    left: calc(50% - 1000px/2);
+    top: 0;
+    width: 1000px;
+    height: 366px;
+  }
+}
+
 #credits {
   background: #ddd;
   border-radius: 3px;
@@ -66,4 +76,5 @@ a {
   padding: 20px 50px;
   border-radius: 5px;
   background: #ffcc00;
+  display: none;
 }
