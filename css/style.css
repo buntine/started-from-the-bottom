@@ -113,10 +113,10 @@ a {
 @media only screen and (max-width: 1000px) {
   #drake {
     background: url('/images/drake_mob.png') no-repeat right top;
-    left: calc(50% - 1000px/2);
+    left: calc(50% - 750px/2);
     top: 0;
-    width: 1000px;
-    height: 366px;
+    width: 750px;
+    height: 250px;
   }
 
   #patron {
