@@ -38,6 +38,9 @@
           e.classList.toggle("ho");
         }
       },
+      bottom = () => {
+        window.scrollTo(0, totalHeight);
+      },
       killUpSong = () => {
         scrollCount = 0;
         scrollInterval = setInterval(() => {
@@ -67,7 +70,7 @@
           }
 
           if (currentProgress == 0) {
-            window.scrollTo(0, totalHeight);
+            bottom();
           }
 
           if (scrollTimeout) {
@@ -111,7 +114,7 @@
         noggun.style.top = window.innerHeight + "px";
         noggun.style.display = "block"
 
-        window.scrollTo(0, totalHeight);
+        bottom();
         window.addEventListener("scroll", play);
       },
       isMobile = () => { // Source: http://stackoverflow.com/questions/11381673/detecting-a-mobile-browser
@@ -143,7 +146,9 @@
     }
   });
 
-  document.addEventListener("visibilitychange", () => {
-    window.scrollTo(0, totalHeight);
-  });
+  // Prevent endless music loop in Chrome on tab change.
+  document.addEventListener("visibilitychange", bottom);
+
+  // Prevent mid-page scroll on Chrome on page refresh.
+  window.addEventListener("beforeunload", bottom);
 })();
