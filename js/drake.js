@@ -143,7 +143,7 @@
     }
   });
 
-  document.addEventListener("visibilitychange", (e) => {
+  document.addEventListener("visibilitychange", () => {
     window.scrollTo(0, totalHeight);
   });
 })();
