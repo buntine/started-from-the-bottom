@@ -1,0 +1,25 @@
+{
+  "name": "startedfromthebottom",
+  "version": "1.0.0",
+  "description": "Tribute to Drake",
+  "main": "index.js",
+  "dependencies": {
+    "babili": "0.0.9"
+  },
+  "devDependencies": {
+    "babili": "0.0.9"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/buntine/started-from-the-bottom.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/buntine/started-from-the-bottom/issues"
+  },
+  "homepage": "https://github.com/buntine/started-from-the-bottom#readme"
+}
