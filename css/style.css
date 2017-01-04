@@ -6,6 +6,7 @@ html, body {
 }
 
 #drake {
+  z-index: 750;
   position: fixed;
   left: calc(50% - 2016px/2);
   top: 0;
