@@ -1,5 +1,5 @@
 *.sw*
 node_modules
 TODO
-assets/js/*.js
-assets/css/*.css
+app/assets/js/*.js
+app/assets/css/*.css
