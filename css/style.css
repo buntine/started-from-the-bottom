@@ -118,7 +118,7 @@ a {
 @media only screen and (max-width: 900px) {
   #drake {
     background: url('/images/drake_mob.png') no-repeat right top;
-    left: calc(50% - 750px/2);
+    left: calc(50% - 620px/2);
     top: 0;
     width: 620px;
     height: 227px;
