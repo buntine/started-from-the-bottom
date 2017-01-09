@@ -80,19 +80,17 @@
 
           scrollCount += 1;
 
-          if (scrollCount > 2) {
-            if (songUp.paused) {
-              songUp.play();
-              stop(songDown);
-              setIcons(1);
-            }
-
-            if (scrollCount % 20 == 0) {
-              danceIcons();
-            }
-  
-            scrollTimeout = setTimeout(killUpSong, 270);
+          if (songUp.paused) {
+            songUp.play();
+            stop(songDown);
+            setIcons(1);
           }
+
+          if (scrollCount % 20 == 0) {
+            danceIcons();
+          }
+  
+          scrollTimeout = setTimeout(killUpSong, 270);
         }
 
         if (nextProgress < 0) {
