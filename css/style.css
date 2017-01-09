@@ -44,6 +44,14 @@ a {
   height: 100%;
 }
 
+#points {
+  position: fixed;
+  bottom: 10px;
+  left: 200px;
+  font-size: 40px;
+  color: red;
+}
+
 #loading {
   z-index: 800;
   position: absolute;

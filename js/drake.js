@@ -1,5 +1,7 @@
 (() => {
   let noggun,
+      points,
+      totalPoints = 0,
       totalHeight,
       scrollTimeout,
       scrollInterval;
@@ -41,10 +43,16 @@
       bottom = () => {
         window.scrollTo(0, totalHeight);
       },
+      setPoints = (n) => {
+        totalPoints += n;
+
+        points.innerHTML = totalPoints;
+      },
       killUpSong = () => {
         scrollCount = 0;
         scrollInterval = setInterval(() => {
           if (progress() < 1) {
+            setPoints(-1);
             window.scrollBy(0, 100);
           }
           else {
@@ -66,6 +74,8 @@
               nextProgress = normalize(currentProgress);
 
         if (currentProgress < previousProgress) {
+          scrollCount += 1;
+
           if (scrollInterval) {
             killDownSong();
           }
@@ -73,12 +83,6 @@
           if (currentProgress == 0) {
             bottom();
           }
-
-          if (scrollTimeout) {
-            clearTimeout(scrollTimeout);
-          }
-
-          scrollCount += 1;
 
           if (songUp.paused) {
             songUp.play();
@@ -89,7 +93,9 @@
           if (scrollCount % 20 == 0) {
             danceIcons();
           }
-  
+
+          setPoints(1);
+          clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(killUpSong, 270);
         }
 
@@ -109,6 +115,7 @@
 
         container.style.height = "40000px";
 
+        points = document.getElementById("points");
         noggun = document.getElementById("drake");
         totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
                              html.clientHeight, html.scrollHeight, html.offsetHeight);
