@@ -62,7 +62,8 @@
         stop(songDown);
       },
       play = () => {
-        const currentProgress = progress();
+        const currentProgress = progress(),
+              nextProgress = normalize(currentProgress);
 
         if (currentProgress < previousProgress) {
           if (scrollInterval) {
@@ -94,7 +95,10 @@
           }
         }
 
-        noggun.style.top = normalize(currentProgress) + "px";
+        if (nextProgress < 0) {
+          noggun.style.top = nextProgress + "px";
+        }
+
         previousProgress = currentProgress;
       },
       start = () => {
@@ -111,7 +115,7 @@
         totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
                              html.clientHeight, html.scrollHeight, html.offsetHeight);
 
-        noggun.style.top = window.innerHeight + "px";
+        noggun.style.top = -window.innerHeight + "px";
         noggun.style.display = "block"
 
         bottom();

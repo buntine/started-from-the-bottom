@@ -81,7 +81,7 @@ a {
   width: 100px;
   height: 160px;
   position: fixed;
-  bottom: 12px;
+  bottom: 14px;
   left: 30px;
   opacity: 0;
   transition: opacity .25s ease-in-out;
