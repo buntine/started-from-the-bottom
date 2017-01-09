@@ -50,6 +50,7 @@ a {
   left: 200px;
   font-size: 40px;
   color: red;
+  font-family: 'VT323', monospace;
 }
 
 #loading {

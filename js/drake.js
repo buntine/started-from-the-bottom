@@ -41,6 +41,7 @@
         }
       },
       bottom = () => {
+        setPoints(-totalPoints);
         window.scrollTo(0, totalHeight);
       },
       setPoints = (n) => {
@@ -56,6 +57,7 @@
             window.scrollBy(0, 100);
           }
           else {
+            bottom();
             setIcons(0);
             killDownSong();
           }
@@ -74,7 +76,7 @@
               nextProgress = normalize(currentProgress);
 
         if (currentProgress < previousProgress) {
-          scrollCount += 1;
+          scrollCount++;
 
           if (scrollInterval) {
             killDownSong();
@@ -99,7 +101,7 @@
           scrollTimeout = setTimeout(killUpSong, 270);
         }
 
-        if (nextProgress < 0) {
+        if (nextProgress <= 0) {
           noggun.style.top = nextProgress + "px";
         }
 
