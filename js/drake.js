@@ -25,13 +25,13 @@
         s.pause();
         s.currentTime = 0;
       },
-      setPatron = (o) => {
+      setIcons = (o) => {
         for (id of ["patron", "cash"]) {
           const e = document.getElementById(id);
           e.style.opacity = o;
         }
       },
-      dancePatron = () => {
+      danceIcons = () => {
         for (id of ["patron", "cash"]) {
           const e = document.getElementById(id);
           e.classList.toggle("hey");
@@ -48,12 +48,12 @@
             window.scrollBy(0, 100);
           }
           else {
-            setPatron(0);
+            setIcons(0);
             killDownSong();
           }
         }, 30);
 
-        setPatron(0);
+        setIcons(0);
         songDown.play();
         stop(songUp);
       },
@@ -83,11 +83,11 @@
             if (songUp.paused) {
               songUp.play();
               stop(songDown);
-              setPatron(1);
+              setIcons(1);
             }
 
             if (scrollCount % 20 == 0) {
-              dancePatron();
+              danceIcons();
             }
   
             scrollTimeout = setTimeout(killUpSong, 270);
