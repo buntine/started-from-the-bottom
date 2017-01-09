@@ -34,10 +34,12 @@
         }
       },
       danceIcons = () => {
-        for (id of ["patron", "cash"]) {
-          const e = document.getElementById(id);
-          e.classList.toggle("hey");
-          e.classList.toggle("ho");
+        if (scrollCount % 20 == 0) {
+          for (id of ["patron", "cash"]) {
+            const e = document.getElementById(id);
+            e.classList.toggle("hey");
+            e.classList.toggle("ho");
+          }
         }
       },
       reset = () => {
@@ -76,7 +78,7 @@
       },
       play = () => {
         const currentProgress = progress(),
-              nextProgress = normalize(currentProgress);
+              pixelOffset = normalize(currentProgress);
 
         if (currentProgress < previousProgress) {
           scrollCount++;
@@ -85,27 +87,26 @@
             killDownSong();
           }
 
+          // Hit top, jump down to bottom.
           if (currentProgress == 0) {
             bottom();
           }
 
           if (songUp.paused) {
             songUp.play();
-            stop(songDown);
+            killDownSong();
             setIcons(1);
           }
 
-          if (scrollCount % 20 == 0) {
-            danceIcons();
-          }
-
+          danceIcons();
           setPoints(1);
           clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(killUpSong, 270);
         }
 
-        if (nextProgress <= 0) {
-          noggun.style.top = nextProgress + "px";
+        // Only scroll Drake down to be on-screen, not further.
+        if (pixelOffset <= 0) {
+          noggun.style.top = pixelOffset + "px";
         }
 
         previousProgress = currentProgress;
