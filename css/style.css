@@ -8,11 +8,10 @@ html, body {
 #drake {
   z-index: 750;
   position: fixed;
-  left: calc(50% - 2016px/2);
+  left: 0;
   top: 0;
-  width: 2016px;
-  height: 736px;
-  background: url('/images/drake.png') no-repeat right top;
+  width: 100%;
+  height: auto;
   display: none;
 }
 
