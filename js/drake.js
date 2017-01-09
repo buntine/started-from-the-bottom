@@ -52,7 +52,10 @@
       setPoints = (n) => {
         totalPoints += n;
 
-        points.innerHTML = totalPoints;
+        const exts = ["000,00", "000,0", "000,", "", "00", "0", ""], // Poor-mans left-padded formatting (O(1) lookup better than a loop!).
+              formattedPoints = totalPoints.toLocaleString("en-US");
+
+        points.innerHTML = exts[formattedPoints.length - 1] + formattedPoints;
       },
       killUpSong = () => {
         scrollCount = 0;

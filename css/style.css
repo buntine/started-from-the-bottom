@@ -16,6 +16,7 @@ html, body {
 }
 
 #credits {
+  display: none; /* Hidden for now */
   background: #ddd;
   border-radius: 3px;
   position: fixed;
@@ -47,8 +48,10 @@ a {
 #points {
   position: fixed;
   bottom: 10px;
-  left: 200px;
-  font-size: 40px;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  font-size: 150px;
   color: red;
   font-family: 'VT323', monospace;
 }
