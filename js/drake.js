@@ -124,7 +124,7 @@
 
         container.style.height = "40000px";
 
-        points = document.getElementById("points");
+        points = document.getElementById("points_n");
         noggun = document.getElementById("drake");
         totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
                              html.clientHeight, html.scrollHeight, html.offsetHeight);
