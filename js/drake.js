@@ -117,12 +117,13 @@
       start = () => {
         const body = document.body,
               html = document.documentElement,
-              cont = document.getElementById("container");
+              cont = document.getElementById("container"),
+              points_cont = document.getElementById("points");
 
         songUp.load();
         songDown.load();
 
-        container.style.height = "40000px";
+        cont.style.height = "40000px";
 
         points = document.getElementById("points_n");
         noggun = document.getElementById("drake");
@@ -130,6 +131,8 @@
                              html.clientHeight, html.scrollHeight, html.offsetHeight);
 
         noggun.style.top = -window.innerHeight + "px";
+
+        points_cont.style.display = "block";
         noggun.style.display = "block"
 
         reset();
