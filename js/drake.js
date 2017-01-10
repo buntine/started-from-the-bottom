@@ -50,6 +50,8 @@
         window.scrollTo(0, totalHeight);
       },
       setPoints = (n) => {
+        if (totalPoints + n < 0) { return; }
+
         totalPoints += n;
 
         const exts = ["000,00", "000,0", "000,", "", "00", "0", ""], // Poor-mans left-padded formatting (O(1) lookup better than a loop!).
@@ -108,7 +110,7 @@
         }
 
         // Only scroll Drake down to be on-screen, not further.
-        if (pixelOffset <= 0) {
+        if (pixelOffset <= 18) {
           noggun.style.top = pixelOffset + "px";
         }
 
