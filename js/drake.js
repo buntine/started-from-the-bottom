@@ -60,11 +60,17 @@
 
         points.innerHTML = exts[formattedPoints.length - 1] + formattedPoints;
       },
+      positionBackground = (p) => {
+        const current = parseInt(background.style.backgroundPositionY) || 0;
+
+        background.style.backgroundPositionY = `${current - p}px`;
+      },
       killUpSong = () => {
         scrollCount = 0;
         scrollInterval = setInterval(() => {
           if (progress() < 1) {
             setPoints(-1);
+            positionBackground(-14);
             window.scrollBy(0, 100);
           }
           else {
@@ -105,6 +111,7 @@
           }
 
           danceIcons();
+          positionBackground(14);
           setPoints(1);
           clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(killUpSong, 270);
@@ -114,9 +121,6 @@
         if (pixelOffset <= 18) {
           noggun.style.top = pixelOffset + "px";
         }
-
-        var bgPosition = parseInt(background.style.backgroundPositionY) || 0;
-        background.style.backgroundPositionY = `${bgPosition+14}px`;
 
         previousProgress = currentProgress;
       },
