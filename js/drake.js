@@ -1,6 +1,7 @@
 (() => {
   let noggun,
       points,
+      background,
       totalPoints = 0,
       totalHeight,
       scrollTimeout,
@@ -67,9 +68,9 @@
             window.scrollBy(0, 100);
           }
           else {
+            killDownSong();
             reset();
             setIcons(0);
-            killDownSong();
           }
         }, 30);
 
@@ -114,6 +115,9 @@
           noggun.style.top = pixelOffset + "px";
         }
 
+        var bgPosition = parseInt(background.style.backgroundPositionY) || 0;
+        background.style.backgroundPositionY = `${bgPosition+14}px`;
+
         previousProgress = currentProgress;
       },
       start = () => {
@@ -127,6 +131,7 @@
 
         cont.style.height = "40000px";
 
+        background = document.getElementById("background");
         points = document.getElementById("points_n");
         noggun = document.getElementById("drake");
         totalHeight = Math.max(body.scrollHeight, body.offsetHeight, 
