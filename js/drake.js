@@ -25,8 +25,8 @@
         return high + (low - (high * p));
       },
       stop = (s) => {
-        s.pause();
         s.currentTime = 0;
+        s.pause();
       },
       setIcons = (o) => {
         for (id of ["patron", "cash"]) {
@@ -92,6 +92,7 @@
         const currentProgress = progress(),
               pixelOffset = normalize(currentProgress);
 
+        // User is scrolling up.
         if (currentProgress < previousProgress) {
           scrollCount++;
 
