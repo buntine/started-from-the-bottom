@@ -70,7 +70,7 @@
         scrollInterval = setInterval(() => {
           if (progress() < 1) {
             setPoints(-1);
-            positionBackground(-14);
+            positionBackground(14);
             window.scrollBy(0, 100);
           }
           else {
@@ -105,15 +105,19 @@
             bottom();
           }
 
-          if (songUp.paused) {
-            songUp.play();
-            killDownSong();
-            setIcons(1);
+          // Prevent bouncing issue on iPhones.
+          if (scrollCount > 2) {
+            if (songUp.paused) {
+              songUp.play();
+              killDownSong();
+              setIcons(1);
+            }
+
+            danceIcons();
+            positionBackground(-14);
+            setPoints(1);
           }
 
-          danceIcons();
-          positionBackground(14);
-          setPoints(1);
           clearTimeout(scrollTimeout);
           scrollTimeout = setTimeout(killUpSong, 270);
         }
