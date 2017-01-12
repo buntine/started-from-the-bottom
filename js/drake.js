@@ -61,9 +61,10 @@
         points.innerHTML = exts[formattedPoints.length - 1] + formattedPoints;
       },
       positionBackground = (p) => {
-        const current = parseInt(background.style.backgroundPositionY) || 0;
+        const currentPos = background.style.backgroundPosition || "0 0",
+              nextPos = `0 ${parseInt(currentPos.split(" ")[1]) - p}px`;
 
-        background.style.backgroundPositionY = `${current - p}px`;
+        background.style.backgroundPosition = nextPos;
       },
       killUpSong = () => {
         scrollCount = 0;
